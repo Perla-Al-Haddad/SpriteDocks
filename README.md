@@ -1,6 +1,24 @@
-# Walnut App Template
+# SpriteDocks
 
-This is a simple app template for [Walnut](https://github.com/TheCherno/Walnut) - unlike the example within the Walnut repository, this keeps Walnut as an external submodule and is much more sensible for actually building applications. See the [Walnut](https://github.com/TheCherno/Walnut) repository for more details.
+SpriteDocks is a work-in-progress pixel art open-source software project aimed at providing a lightweight and user-friendly platform for creating pixel art. 
+
+This project is built using the [WalnutAppTemplate](https://github.com/TheCherno/WalnutAppTemplate) repo by [TheCherno](https://github.com/TheCherno) as a foundation.
+
+## Requirements
+To set up and run the project, please ensure you have the following:
+- [Visual Studio 2022](https://visualstudio.com) (not strictly required, however included setup scripts only support this)
+- [Vulkan SDK](https://vulkan.lunarg.com/sdk/home#windows) (preferably a recent version)
 
 ## Getting Started
-Once you've cloned, you can customize the `premake5.lua` and `WalnutApp/premake5.lua` files to your liking (eg. change the name from "WalnutApp" to something else).  Once you're happy, run `scripts/Setup.bat` to generate Visual Studio 2022 solution/project files. Your app is located in the `WalnutApp/` directory, which some basic example code to get you going in `WalnutApp/src/WalnutApp.cpp`. I recommend modifying that WalnutApp project to create your own application, as everything should be setup and ready to go.
+To quickly set up the project, follow these steps:
+
+1. Run scripts/Setup.bat to generate Visual Studio 2022 solution/project files.
+
+### 3rd party libaries
+- [Dear ImGui](https://github.com/ocornut/imgui)
+- [GLFW](https://github.com/glfw/glfw)
+- [stb_image](https://github.com/nothings/stb)
+- [GLM](https://github.com/g-truc/glm) (included for convenience)
+
+### Additional
+SpriteDocks uses the [Roboto](https://fonts.google.com/specimen/Roboto) font ([Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0))
