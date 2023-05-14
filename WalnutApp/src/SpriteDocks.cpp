@@ -175,7 +175,6 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 
 	size_t file_data_size = 0;
 	char* file_data = (char*)ImFileLoadToMemory(ImGui::GetCurrentContext()->IO.IniFilename, "rb", &file_data_size);
-	file_data = false;
 	if (!file_data) {
 		std::shared_ptr<LayerStackManager> layerStackManager = std::make_shared<LayerStackManager>(menuBarSize);
 		app->PushLayer(layerStackManager);
