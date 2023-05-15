@@ -73,11 +73,6 @@ class PaintLayer : public Walnut::Layer {
 
 class LayerStackManager : public Walnut::Layer {
 public:
-	ImVec2 viewPortOffset;
-
-	LayerStackManager(ImVec2 viewPortOffset) {
-		this->viewPortOffset = viewPortOffset;
-	}
 
 	virtual void OnUIRender() override {
 
@@ -166,18 +161,14 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 
 	Walnut::Application* app = new Walnut::Application(spec);
 
-	ImVec2 menuBarSize;
-	app->SetMenubarCallback([app, &menuBarSize]()
-		{
-			MenubarHandler::RenderMenuBar(app);
-			menuBarSize = ImGui::GetWindowSize();
-		});
+	app->SetMenubarCallback([app]() {
+		MenubarHandler::RenderMenuBar(app);
+	});
 
 	size_t file_data_size = 0;
 	char* file_data = (char*)ImFileLoadToMemory(ImGui::GetCurrentContext()->IO.IniFilename, "rb", &file_data_size);
 	if (!file_data) {
-		std::shared_ptr<LayerStackManager> layerStackManager = std::make_shared<LayerStackManager>(menuBarSize);
-		app->PushLayer(layerStackManager);
+		app->PushLayer<LayerStackManager>();
 	}
 
 	app->PushLayer<ColorLayer>();
